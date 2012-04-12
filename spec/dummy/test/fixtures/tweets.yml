@@ -1,0 +1,7 @@
+public_users:
+  user: public
+  body: Public tweet
+
+protected_users:
+  user: protected 
+  body: Protected tweet

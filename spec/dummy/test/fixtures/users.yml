@@ -1,0 +1,7 @@
+public:
+  name: public
+  protected: false
+  
+protected:
+  name: protected
+  protected: true
