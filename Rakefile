@@ -12,9 +12,11 @@ end
 require 'rake'
 
 require 'jeweler'
+require "#{File.dirname(__FILE__)}/lib/crudable/version"
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "crudable"
+  gem.version = Crudable::VERSION
   gem.homepage = "http://github.com/labocho/crudable"
   gem.license = "MIT"
   gem.summary = %Q{Rails controller filter to authorize user}

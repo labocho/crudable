@@ -1,7 +1,10 @@
 module Crudable
   module Filter
     def self.included(base)
-      base.extend ClassMethods
+      base.class_eval do
+        extend ClassMethods
+        include InstanceMethods
+      end
     end
 
     module ClassMethods
@@ -25,8 +28,6 @@ module Crudable
       #   updatable : Action names that filter by accept_updatable. (default: [:edit, :update])
       #   deletable : Action names that filter by accept_deletable. (default: [:destroy])
       def crudable_filter(options = {})
-        include ::Crudable::Filter::InstanceMethods
-
         @model_class = options[:model] || self.to_s.gsub(/Controller$/, "").singularize.constantize
         @object_name = options[:object] || self.to_s.gsub(/^.*::/, "").gsub(/Controller$/, "").singularize.underscore
         @parent_name = case options[:parent]
